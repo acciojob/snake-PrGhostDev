@@ -39,19 +39,19 @@ function updateGame() {
 }
 
 function updateGrid() {
-    container.innerHTML = ''; 
+    container.innerHTML = '';
     const foodPixel = document.createElement('div');
     foodPixel.className = 'pixel food';
     foodPixel.style.gridColumn = food.x + 1;
     foodPixel.style.gridRow = food.y + 1;
     container.appendChild(foodPixel);
 
-    // Add snake segments to the grid
     snake.forEach((segment, index) => {
         const snakePixel = document.createElement('div');
         snakePixel.className = 'pixel snakeBodyPixel';
         snakePixel.style.gridColumn = segment.x + 1;
         snakePixel.style.gridRow = segment.y + 1;
+        snakePixel.id = `segment-${index}`; // Set a unique ID
         container.appendChild(snakePixel);
     });
 }
